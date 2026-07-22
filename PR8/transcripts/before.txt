@@ -1,0 +1,7 @@
+$ # base main: AgentCreateParams / WorkspaceAgentLaunch WITHOUT model/effort
+$ bunx tsc --noEmit -p packages/sdk/tsconfig.json
+
+src/__launch_check.ts(11,7): error TS2322: Type 'true' is not assignable to type 'false'.
+src/__launch_check.ts(12,7): error TS2322: Type 'true' is not assignable to type 'false'.
+src/__launch_check.ts(13,7): error TS2322: Type 'true' is not assignable to type 'false'.
+src/__launch_check.ts(14,7): error TS2322: Type 'true' is not assignable to type 'false'.

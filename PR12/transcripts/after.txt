@@ -1,0 +1,6 @@
+$ grep '"axios"' package.json      # this branch: patched override
+		"axios": "1.18.1",
+
+$ bun audit        # axios advisories on the fix branch
+
+──> axios: 0 advisories (1.18.1 is the latest patched release)

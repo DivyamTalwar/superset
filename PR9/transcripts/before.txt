@@ -1,0 +1,3 @@
+$ # base main: is there a job that builds the Vercel apps on PRs?
+$ git show origin/main:.github/workflows/ci.yml | grep -c 'build-vercel-apps'
+0        <- no such job: PRs never build api / web / marketing / admin / docs

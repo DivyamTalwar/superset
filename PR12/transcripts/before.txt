@@ -1,0 +1,15 @@
+$ grep '"axios"' package.json      # base main: pinned to 1.14.0
+		"axios": "1.14.0",
+
+$ bun audit | grep axios      # base main
+axios  >=1.0.0 <1.15.2
+  high: Allocation of Resources Without Limits or Throttling in Axios - https://github.com/advisories/GHSA-777c-7fjr-54vf
+  high: Axios has prototype pollution read-side gadgets in HTTP adapter that allow credential injection and request hijacking - https://github.com/advisories/GHSA-q8qp-cvcw-x6jj
+  high: Axios: Header Injection via Prototype Pollution - https://github.com/advisories/GHSA-6chq-wfr3-2hj9
+  high: Axios: Incomplete Fix for CVE-2025-62718 — NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0 - https://github.com/advisories/GHSA-pmwg-cvhr-8vh7
+  high: Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking - https://github.com/advisories/GHSA-pf86-5x62-jrwf
+  high: Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter - https://github.com/advisories/GHSA-p92q-9vqr-4j8v
+  … (moderate/low advisories omitted for brevity)
+
+──> axios 1.14.0 on main: 28 advisory findings across @slack/web-api and @tavily/core
+    (high-severity: SSRF, Proxy-Auth credential leak, prototype-pollution MITM, ReDoS)

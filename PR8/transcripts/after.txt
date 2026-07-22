@@ -1,0 +1,5 @@
+$ git checkout feat/sdk-agent-launch-contracts   # the fix
+$ # type-assert that AgentCreateParams / WorkspaceAgentLaunch accept model + effort
+$ bunx tsc --noEmit -p packages/sdk/tsconfig.json
+
+✓ tsc --noEmit: 0 errors — model + effort are accepted on both launch surfaces

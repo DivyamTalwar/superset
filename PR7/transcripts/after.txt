@@ -1,0 +1,6 @@
+$ git checkout fix/sdk-version-task-status-exports   # the fix
+$ bun run sdk-consumer.ts
+
+VERSION                       = 0.0.1-alpha.12
+barrel.TaskStatuses (value)   = function
+barrel.TaskStatuses exported? = true

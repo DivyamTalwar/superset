@@ -1,0 +1,3 @@
+$ # base main: can two production deploys run concurrently and race (migrations + deploys)?
+$ git show origin/main:.github/workflows/deploy-production.yml | grep -c 'concurrency'
+0        <- no concurrency group: overlapping pushes to main run prod deploys in parallel

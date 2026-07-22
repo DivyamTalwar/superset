@@ -1,0 +1,3 @@
+$ # base main: do preview-deploy jobs guard against FORK PRs (which must NOT get preview secrets)?
+$ git show origin/main:.github/workflows/deploy-preview.yml | grep -c 'head.repo.full_name'
+0        <- NO guard: a fork PR would run deploy-database/api/web/... against 'environment: preview' secrets

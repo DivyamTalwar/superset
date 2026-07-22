@@ -1,0 +1,6 @@
+$ # base main SDK: barrel missing TaskStatuses; VERSION stale
+$ bun run sdk-consumer.ts
+
+VERSION                       = 0.0.1-alpha.7
+barrel.TaskStatuses (value)   = undefined  <-- NOT EXPORTED
+barrel.TaskStatuses exported? = false

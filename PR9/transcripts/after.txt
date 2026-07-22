@@ -1,0 +1,11 @@
+$ git checkout ci/build-deployable-surfaces
+$ grep -E 'build-vercel-apps|- app:' .github/workflows/ci.yml
+  build-vercel-apps:
+          - app: api
+          - app: web
+          - app: marketing
+          - app: admin
+          - app: docs
+
+$ actionlint .github/workflows/ci.yml
+✓ 0 problems — workflow valid; PRs now build all 5 Vercel apps in a matrix

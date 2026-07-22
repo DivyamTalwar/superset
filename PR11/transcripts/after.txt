@@ -1,0 +1,8 @@
+$ git checkout ci/serialize-production-deploys
+$ grep -A2 '^concurrency:' .github/workflows/deploy-production.yml
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+$ actionlint .github/workflows/deploy-production.yml
+✓ 0 problems — prod deploys now serialized (group: deploy-production, cancel-in-progress: false)
