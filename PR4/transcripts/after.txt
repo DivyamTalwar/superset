@@ -1,0 +1,15 @@
+$ git checkout fix/api-linear-image-private-cache   # the fix
+$ bun test route.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+ 13 pass
+ 0 fail
+ 93 expect() calls
+Ran 13 tests across 1 file. [246.00ms]
+
+$ # fix branch: the proxied image response now sets no-store (never shared-cached)
+$ grep -n 'no-store\|Cache-Control\|Pragma\|nosniff' route-core.ts
+5:	"Cache-Control": "no-store",
+6:	Pragma: "no-cache",
+7:	"X-Content-Type-Options": "nosniff",

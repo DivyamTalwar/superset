@@ -1,0 +1,9 @@
+$ git checkout fix/host-service-jwt-token-rotation   # the fix
+$ bun test JwtAuthProvider.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+ 9 pass
+ 0 fail
+ 35 expect() calls
+Ran 9 tests across 1 file. [201.00ms]

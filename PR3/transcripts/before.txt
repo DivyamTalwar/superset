@@ -1,0 +1,12 @@
+$ # base main trpc.ts (ignores x-superset-organization-id) + the PR's regression tests
+$ bun test src/trpc.test.ts
+
+# regression tests run against UN-fixed base code — these cases fail:
+(fail) jwtProcedure > uses the requested organization header when the JWT includes that membership [6.21ms]
+(fail) jwtProcedure > rejects an organization header outside the JWT membership list [0.76ms]
+(fail) jwtProcedure > ignores malformed non-string organization IDs from JWT payloads [0.27ms]
+(fail) jwtProcedure > uses a valid organization header for session fallback callers [0.31ms]
+
+ 2 pass
+ 4 fail
+Ran 6 tests across 1 file. [54.00ms]

@@ -1,0 +1,21 @@
+$ git checkout test/api-run-committed-tests   # adds  "test": "bun test src"
+$ bun run test        # in apps/api
+
+$ bun test src
+bun test v1.3.6 (d530ed99)
+
+src/app/api/integrations/slack/interactions/route.test.ts:
+[slack/interactions] Failed to parse JSON payload
+[slack/interactions] Invalid JSON payload
+
+src/app/api/integrations/slack/events/route.test.ts:
+[slack/events] Failed to parse JSON payload
+[slack/events] Failed to parse JSON payload
+[slack/events] Invalid JSON payload
+[slack/events] Invalid event payload shape
+[slack/events] Invalid app home opened payload shape
+
+ 16 pass
+ 0 fail
+ 33 expect() calls
+Ran 16 tests across 3 files. [129.00ms]

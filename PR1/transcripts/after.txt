@@ -1,0 +1,9 @@
+$ git checkout fix/web-public-route-matching   # the merged fix (exact/child match)
+$ bun test src/proxy-routes.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+ 29 pass
+ 0 fail
+ 29 expect() calls
+Ran 29 tests across 1 file. [69.00ms]

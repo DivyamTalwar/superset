@@ -1,0 +1,30 @@
+$ # base main JwtAuthProvider.ts (no source-token tracking) + the PR's regression test
+$ bun test JwtAuthProvider.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+src/providers/auth/JwtAuthProvider/JwtAuthProvider.test.ts:
+380 | 			Authorization: "Bearer minted.old.jwt",
+381 | 		});
+382 | 
+383 | 		apiKey = "sk_live_new";
+384 | 
+385 | 		await expect(authProvider.getHeaders()).resolves.toEqual({
+                                                         ^
+error: expect(received).toEqual(expected)
+
+  {
+-   "Authorization": "Bearer minted.new.jwt",
++   "Authorization": "Bearer minted.old.jwt",
+  }
+
+- Expected  - 1
++ Received  + 1
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/host-service/src/providers/auth/JwtAuthProvider/JwtAuthProvider.test.ts:385:52)
+(fail) JwtApiAuthProvider with config-backed host auth > does not reuse a minted JWT after the source API key rotates [2.52ms]
+
+ 8 pass
+ 1 fail
+ 33 expect() calls
+Ran 9 tests across 1 file. [69.00ms]

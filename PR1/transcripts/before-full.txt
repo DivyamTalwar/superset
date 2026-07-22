@@ -1,0 +1,151 @@
+$ # base main matcher: publicRoutes.some(r => pathname.startsWith(r))  -- the prefix-bypass bug
+$ bun test src/proxy-routes.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+src/proxy-routes.test.ts:
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /sign-internal [2.22ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /sign-internal/settings [0.09ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /sign-upgrade [0.23ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /auth/desktopish [0.05ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /api/auth/desktopish [0.02ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /accept-invitation-list [0.02ms]
+28 | 		"/auth/desktopish",
+29 | 		"/api/auth/desktopish",
+30 | 		"/accept-invitation-list",
+31 | 		"/cli/auth/codegen",
+32 | 	])("keeps sibling routes protected: %s", (pathname: string) => {
+33 | 		expect(isPublicRoute(pathname)).toBe(false);
+                                       ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:33:35)
+(fail) isPublicRoute > keeps sibling routes protected: /cli/auth/codegen [0.01ms]
+49 | 		"/dashboard",
+50 | 		"/sign-internal",
+51 | 		"/sign-internal/settings",
+52 | 		"/sign-upgrade",
+53 | 	])("does not match sibling routes for authenticated redirects: %s", (pathname: string) => {
+54 | 		expect(isAuthPageRoute(pathname)).toBe(false);
+                                         ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:54:37)
+(fail) isAuthPageRoute > does not match sibling routes for authenticated redirects: /sign-internal [0.06ms]
+49 | 		"/dashboard",
+50 | 		"/sign-internal",
+51 | 		"/sign-internal/settings",
+52 | 		"/sign-upgrade",
+53 | 	])("does not match sibling routes for authenticated redirects: %s", (pathname: string) => {
+54 | 		expect(isAuthPageRoute(pathname)).toBe(false);
+                                         ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:54:37)
+(fail) isAuthPageRoute > does not match sibling routes for authenticated redirects: /sign-internal/settings [0.05ms]
+49 | 		"/dashboard",
+50 | 		"/sign-internal",
+51 | 		"/sign-internal/settings",
+52 | 		"/sign-upgrade",
+53 | 	])("does not match sibling routes for authenticated redirects: %s", (pathname: string) => {
+54 | 		expect(isAuthPageRoute(pathname)).toBe(false);
+                                         ^
+error: expect(received).toBe(expected)
+
+Expected: false
+Received: true
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/web/src/proxy-routes.test.ts:54:37)
+(fail) isAuthPageRoute > does not match sibling routes for authenticated redirects: /sign-upgrade [0.02ms]
+
+ 19 pass
+ 10 fail
+ 29 expect() calls
+Ran 29 tests across 1 file. [14.00ms]

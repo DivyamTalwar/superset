@@ -1,0 +1,8 @@
+$ # base main: apps/api/package.json has NO 'test' script,
+$ # so 'turbo test' skips @superset/api and the committed route tests never run.
+$ grep '"test"' apps/api/package.json   # on base main
+  (none)
+
+$ bun run test        # in apps/api, on base main
+error: "/bin/test" exited with code 1
+note: a package.json script "test" was not found

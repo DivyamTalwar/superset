@@ -1,0 +1,89 @@
+$ # base main trpc.ts (ignores x-superset-organization-id) + the PR's regression tests
+$ bun test src/trpc.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+src/trpc.test.ts:
+ 95 | 				},
+ 96 | 				{ [ORGANIZATION_HEADER]: "org-requested" },
+ 97 | 			),
+ 98 | 		);
+ 99 | 
+100 | 		await expect(caller.activeOrganization()).resolves.toEqual({
+                                                           ^
+error: expect(received).toEqual(expected)
+
+@@ -1,3 +1,3 @@
+  {
+-   "activeOrganizationId": "org-requested",
++   "activeOrganizationId": "org-default",
+    "organizationIds": [
+
+- Expected  - 1
++ Received  + 1
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:100:54)
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:88:87)
+(fail) jwtProcedure > uses the requested organization header when the JWT includes that membership [6.21ms]
+130 | 				},
+131 | 				{ [ORGANIZATION_HEADER]: "org-forbidden" },
+132 | 			),
+133 | 		);
+134 | 
+135 | 		await expect(caller.activeOrganization()).rejects.toEqual(
+                                                          ^
+error: 
+
+Expected promise that rejects
+Received promise that resolved: Promise { <resolved> }
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:135:53)
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:123:73)
+(fail) jwtProcedure > rejects an organization header outside the JWT membership list [0.76ms]
+147 | 				organizationIds: ["org-default", 123, null],
+148 | 				sub: "user-1",
+149 | 			}),
+150 | 		);
+151 | 
+152 | 		await expect(caller.activeOrganization()).resolves.toEqual({
+                                                           ^
+error: expect(received).toEqual(expected)
+
+@@ -4,3 +4,4 @@
+      "org-default",
++     123,
++     null,
+    ],
+
+- Expected  - 0
++ Received  + 2
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:152:54)
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:143:74)
+(fail) jwtProcedure > ignores malformed non-string organization IDs from JWT payloads [0.27ms]
+179 | 			createSessionContext("org-default", {
+180 | 				[ORGANIZATION_HEADER]: "org-requested",
+181 | 			}),
+182 | 		);
+183 | 
+184 | 		await expect(caller.activeOrganization()).resolves.toEqual({
+                                                           ^
+error: expect(received).toEqual(expected)
+
+@@ -1,3 +1,3 @@
+  {
+-   "activeOrganizationId": "org-requested",
++   "activeOrganizationId": "org-default",
+    "organizationIds": [
+
+- Expected  - 1
++ Received  + 1
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:184:54)
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/packages/trpc/src/trpc.test.ts:173:72)
+(fail) jwtProcedure > uses a valid organization header for session fallback callers [0.31ms]
+
+ 2 pass
+ 4 fail
+ 6 expect() calls
+Ran 6 tests across 1 file. [54.00ms]

@@ -1,0 +1,39 @@
+$ # ── BEFORE, part (a): on base main these tenant-isolation invariants are UNGUARDED ──
+$ git show origin/main:apps/electric-proxy/package.json | grep '"test"'
+  (no test script — bun/turbo runs NOTHING for electric-proxy)
+$ git ls-tree origin/main apps/electric-proxy/src --name-only | grep test
+  (zero *.test.ts files — the multi-tenant WHERE builder & auth stripping have no coverage)
+
+$ # ── BEFORE, part (b): REGRESSION DEMO — introduce a tenant-isolation bug, prove the new guard catches it ──
+$ # simulate a regression: a JWT with NO org membership is wrongly allowed to see ALL orgs
+$ sed  's/fragment: "1 = 0"/fragment: "1 = 1"/'  where.ts   # deny-all -> allow-all
+$ bun test src/where.test.ts
+
+bun test v1.3.6 (d530ed99)
+
+src/where.test.ts:
+20 | 		expect(clause?.fragment).toContain('"id" in ($1, $2)');
+21 | 		expect(clause?.params).toEqual(["org-1", "org-2"]);
+22 | 	});
+23 | 
+24 | 	test("denies auth.organizations when the JWT has no organizations", () => {
+25 | 		expect(buildWhereClause("auth.organizations", "", [])).toEqual({
+                                                              ^
+error: expect(received).toEqual(expected)
+
+@@ -1,3 +1,3 @@
+  {
+-   "fragment": "1 = 0",
++   "fragment": "1 = 1",
+    "params": [],
+
+- Expected  - 1
++ Received  + 1
+
+      at <anonymous> (/Users/divyamtalwar/Desktop/SUPERSET/apps/electric-proxy/src/where.test.ts:25:58)
+(fail) buildWhereClause > denies auth.organizations when the JWT has no organizations [3.62ms]
+
+ 4 pass
+ 1 fail
+ 9 expect() calls
+Ran 5 tests across 1 file. [120.00ms]

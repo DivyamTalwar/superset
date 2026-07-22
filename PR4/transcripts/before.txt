@@ -1,0 +1,23 @@
+$ # base main: apps/api/src/app/api/proxy/linear-image/route.ts
+$ #   the SUCCESSFUL (200) authenticated image response headers
+$ git show origin/main:.../linear-image/route.ts | sed -n '70,95p'
+
+			status: linearResponse.status,
+		});
+	}
+
+	const contentType = linearResponse.headers.get("content-type") ?? "image/png";
+	const imageData = await linearResponse.arrayBuffer();
+
+	return new Response(imageData, {
+		status: 200,
+		headers: {
+			"Content-Type": contentType,
+			"Cache-Control": `public, max-age=${CACHE_MAX_AGE}, immutable`,
+		},
+	});
+}
+
+──> BUG: 'public, max-age=31536000, immutable' lets ANY shared cache (CDN/proxy)
+    store this private, org-scoped image and replay it to other viewers,
+    bypassing the per-request auth check on the proxy route.
