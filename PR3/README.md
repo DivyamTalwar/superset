@@ -41,7 +41,7 @@ Base `trpc.ts`, PR's tests: requested org header ignored — returns `activeOrga
 
 **AFTER — fix branch**
 
-Header honored + non-members rejected: **6 pass / 0 fail**.
+Header honored + non-members rejected: **7 pass / 0 fail** (incl. the new session-path negative test added in review).
 
 ![after](./screenshots/02-after.png)
 

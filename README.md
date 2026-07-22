@@ -6,9 +6,9 @@ Twelve PRs (one merged, one reopened-as-follow-up, ten open), each rebased onto 
 |---|---|---|---|---|---|
 | **PR1** | [#5466](https://github.com/superset-sh/superset/pull/5466) | Merged | Web / Auth | Require exact public auth route matches | 10 route bypasses fail → 29 pass |
 | **PR2** | [#5473](https://github.com/superset-sh/superset/pull/5473) | Open | Host / Auth | Refresh minted JWTs after source token rotation | stale JWT (1 fail) → 9 pass |
-| **PR3** | [#5468](https://github.com/superset-sh/superset/pull/5468) | Open | tRPC / Auth | Honor organization header for JWT callers | wrong-org (4 fail) → 6 pass |
+| **PR3** | [#5468](https://github.com/superset-sh/superset/pull/5468) | Open | tRPC / Auth | Honor organization header for JWT callers | wrong-org (4 fail) → 7 pass |
 | **PR4** | [#5467](https://github.com/superset-sh/superset/pull/5467) | Open | API / Security | Keep proxied Linear images out of shared caches | `public,immutable` → `no-store` (13 pass) |
-| **PR5** | [#5470](https://github.com/superset-sh/superset/pull/5470) | Open | Electric / Security | Lock tenant filters and auth stripping | unguarded → 13 contracts (regression caught) |
+| **PR5** | [#5470](https://github.com/superset-sh/superset/pull/5470) | Open | Electric / Security | Lock tenant filters and auth stripping | unguarded → 14 contracts (regression caught) |
 | **PR6** | [#5469](https://github.com/superset-sh/superset/pull/5469) | Open | API / Test-integrity | Run committed API route tests in CI | script-not-found → 16 pass |
 | **PR7** | [#5471](https://github.com/superset-sh/superset/pull/5471) | Open | SDK | Sync version metadata and task-status exports | `TaskStatuses` undefined → exported |
 | **PR8** | [#5472](https://github.com/superset-sh/superset/pull/5472) | Open | SDK | Expose host agent launch options | tsc 4 errors → 0 errors |

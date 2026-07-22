@@ -3,7 +3,7 @@ $ bun test src
 
 bun test v1.3.6 (d530ed99)
 
- 13 pass
+ 14 pass
  0 fail
- 42 expect() calls
-Ran 13 tests across 3 files. [190.00ms]
+ 44 expect() calls
+Ran 14 tests across 3 files. [47.00ms]

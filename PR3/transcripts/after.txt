@@ -3,7 +3,7 @@ $ bun test src/trpc.test.ts
 
 bun test v1.3.6 (d530ed99)
 
- 6 pass
+ 7 pass
  0 fail
- 6 expect() calls
-Ran 6 tests across 1 file. [181.00ms]
+ 7 expect() calls
+Ran 7 tests across 1 file. [151.00ms]

@@ -41,7 +41,7 @@ Real `bun test` output, captured locally with no API key or cloud login. Raw tra
 
 **AFTER — fix branch**
 
-Contracts active and green: **13 pass / 0 fail** across 3 files.
+Contracts active and green: **14 pass / 0 fail** across 3 files (incl. unknown-table + sort coverage added in review).
 
 ![after](./screenshots/02-after.png)
 

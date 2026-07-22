@@ -41,7 +41,7 @@ Real output captured locally with no API key or cloud login. Raw transcripts in 
 
 **AFTER — fix branch**
 
-Matrix builds api/web/marketing/admin/docs; `actionlint` → **0 problems**.
+Matrix builds api/web/marketing/admin/docs; `actionlint` → **0 problems**; verified locally: `docs` build 1 successful (15.2s).
 
 ![after](./screenshots/02-after.png)
 

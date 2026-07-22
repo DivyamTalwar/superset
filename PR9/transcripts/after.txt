@@ -9,3 +9,8 @@ $ grep -E 'build-vercel-apps|- app:' .github/workflows/ci.yml
 
 $ actionlint .github/workflows/ci.yml
 ✓ 0 problems — workflow valid; PRs now build all 5 Vercel apps in a matrix
+
+$ # verified locally that the FIXED job builds (SKIP_ENV_VALIDATION=1 + valid enums):
+$ bun turbo run build --filter=@superset/docs
+ Tasks:    1 successful, 1 total
+  Time:    15.207s 
